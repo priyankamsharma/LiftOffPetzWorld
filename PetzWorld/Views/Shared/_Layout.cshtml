@@ -23,7 +23,12 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="AboutPetAdoption" asp-action="AboutPetAdoption">About Pet Adoption</a>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Search" asp-action="Search">Search Pet</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="AboutUs" asp-action="Aboutus">About Us</a>
                         </li>
                     </ul>
                 </div>
@@ -38,7 +43,8 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - PetzWorld - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2022 - PetzWorld - <a class="text-muted" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a> - <a class="text-muted"  asp-area="" asp-controller="Home" asp-action="FAQ">FAQ</a> - <a class="text-muted" asp-area="" asp-controller="Home" asp-action="About">About</a> - <a class="text-muted" href="mailto:petzworld.com">Contact Us</a>                  
+
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

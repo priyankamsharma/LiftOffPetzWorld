@@ -48,6 +48,27 @@ namespace PetzWorld.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Dogs",
+                columns: table => new
+                {
+                    DogId = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(nullable: true),
+                    Breed = table.Column<string>(nullable: true),
+                    Weight = table.Column<int>(nullable: false),
+                    Color = table.Column<string>(nullable: true),
+                    Sex = table.Column<string>(nullable: true),
+                    Age = table.Column<string>(nullable: true),
+                    Info = table.Column<string>(nullable: true),
+                    Pic = table.Column<string>(nullable: true),
+                    PetId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Dogs", x => x.DogId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -207,6 +228,9 @@ namespace PetzWorld.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Dogs");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
