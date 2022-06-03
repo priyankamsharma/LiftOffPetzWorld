@@ -24,19 +24,19 @@ namespace PetzWorld.Controllers
         
         public IActionResult Form()
         {
-            //AddDogViewModel viewModel = new AddDogViewModel();
-            //return View(viewModel);
-            return View();
+            AddDogViewModel viewModel = new AddDogViewModel();
+            return View(viewModel);
+            //return View();
         }
 
         [HttpPost]
-        public IActionResult AddDog()
+        public IActionResult AddDog(AddDogViewModel viewModel)
         {
 
-            //if (!ModelState.IsValid)
-            //{
-            //    return View("Form", viewModel);
-            //}
+            if (!ModelState.IsValid)
+            {
+                return View("Form", viewModel);
+            }
 
             return Redirect("Index");
         }
