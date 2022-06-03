@@ -40,7 +40,8 @@ namespace PetzWorld.Migrations
                     TwoFactorEnabled = table.Column<bool>(nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
-                    AccessFailedCount = table.Column<int>(nullable: false)
+                    AccessFailedCount = table.Column<int>(nullable: false),
+                    Discriminator = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -51,21 +52,15 @@ namespace PetzWorld.Migrations
                 name: "Dogs",
                 columns: table => new
                 {
-                    DogId = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(nullable: true),
                     Breed = table.Column<string>(nullable: true),
-                    Weight = table.Column<int>(nullable: false),
-                    Color = table.Column<string>(nullable: true),
-                    Sex = table.Column<string>(nullable: true),
-                    Age = table.Column<string>(nullable: true),
-                    Info = table.Column<string>(nullable: true),
-                    Pic = table.Column<string>(nullable: true),
-                    PetId = table.Column<int>(nullable: false)
+                    Age = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Dogs", x => x.DogId);
+                    table.PrimaryKey("PK_Dogs", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -174,6 +169,27 @@ namespace PetzWorld.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Pets",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    DogId = table.Column<int>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
+                    ApplicationUserId = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Pets", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Pets_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -210,6 +226,11 @@ namespace PetzWorld.Migrations
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Pets_ApplicationUserId",
+                table: "Pets",
+                column: "ApplicationUserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -231,6 +252,9 @@ namespace PetzWorld.Migrations
 
             migrationBuilder.DropTable(
                 name: "Dogs");
+
+            migrationBuilder.DropTable(
+                name: "Pets");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

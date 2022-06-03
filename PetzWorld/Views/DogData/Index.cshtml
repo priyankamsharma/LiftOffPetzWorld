@@ -1,5 +1,5 @@
 ﻿@using PetzWorld.Models;
-@model List<DogData>;
+@model List<Dog>;
 
 @{
     ViewData["Title"] = "Dog Data sets";
@@ -17,27 +17,16 @@
         <th>Id</th>
         <th>Name</th>
         <th>Breed</th>
-        <th>Weight (lbz)</th>
-        <th>Color</th>
-        <th>Sex</th>
         <th>Age</th>
-        <th>Info</th>
-        <th>Pic of the cuteness</th>
-
     </tr>
 
-    @foreach (DogData DogData in Model)
+    @foreach (Dog DogData in Model)
     {
         <tr>
             <td>@DogData.Id</td>
-       
+            <td>@DogData.Name</td>
             <td>@DogData.Breed</td>
-            <td>@DogData.Weight</td>
-            <td>@DogData.Color</td>
-            <td>@DogData.Sex</td>
             <td>@DogData.Age</td>
-            <td>@DogData.Info</td>
-            <td>@DogData.Pic</td>
         </tr>
     }
 </table>

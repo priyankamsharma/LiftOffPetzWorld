@@ -18,27 +18,28 @@ namespace PetzWorld.Controllers
 
         public IActionResult Index()
         {
-            List<Dog> dogz = context.Dogs.ToList();
-
-            return View(dogz);
+            List<Dog> dogs = context.Dogs.ToList();
+            return View(dogs);
         }
-
+        
         public IActionResult Form()
         {
-            AddDogViewModel viewModel = new AddDogViewModel();
-            return View(viewModel);
+            //AddDogViewModel viewModel = new AddDogViewModel();
+            //return View(viewModel);
+            return View();
         }
 
         [HttpPost]
-        public IActionResult AddDog(AddDogViewModel viewModel)
+        public IActionResult AddDog()
         {
 
-            if (!ModelState.IsValid)
-            {
-                return View("Form", viewModel);
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return View("Form", viewModel);
+            //}
 
             return Redirect("Index");
         }
+
     }
 }

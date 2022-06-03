@@ -5,17 +5,12 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using PetzWorld.ViewModels;
+using System.Security.Claims;
 
 namespace PetzWorld.Controllers
 {
     public class SearchController : Controller
     {
-        internal static Dictionary<string, string> ColumnChoices = new Dictionary<string, string>()
-        {
-            {"dogs", "Dogs"},
-            {"cats", "Cats"}
-        };
-
         private ApplicationDbContext context;
 
         public SearchController(ApplicationDbContext dbContext)
@@ -26,23 +21,23 @@ namespace PetzWorld.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            ViewBag.columns = ColumnChoices;
-            ViewBag.dogs = context.Dogs.ToList();
-            //ViewBag.cats = context.Cats.ToList();
-            return View();
-        }
-        //[HttpPost("/search/results")]
-        //public IActionResult Results(string searchType)
-        //{ 
-        //    //ViewBag.searchType = searchType;
-            
-        
-        //    //if (searchType == "dogs")
-        //    //{
-        //    //    List<Dogs> dogs = context.Dogs.ToList();
+            ViewBag.currentUserId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            List<Dog> dogs = context.Dogs.ToList();
 
-        //    //    return View(dogs);
-        //    //}
-        //}
+            return View(dogs);
+        }
+
+        public IActionResult Results(string searchType)
+        {
+            List<Dog> displayDogs = new List<Dog>();
+
+            if (searchType == "dogs" || searchType == "Dogs")
+            {
+                displayDogs = context.Dogs.ToList();
+            }
+
+            ViewBag.displayDogs = displayDogs;
+            return View("Results");
+        }
     }
 }
