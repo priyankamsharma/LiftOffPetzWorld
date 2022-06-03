@@ -56,7 +56,12 @@ namespace PetzWorld.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(nullable: true),
                     Breed = table.Column<string>(nullable: true),
-                    Age = table.Column<int>(nullable: false)
+                    Weight = table.Column<int>(nullable: false),
+                    Color = table.Column<string>(nullable: true),
+                    Sex = table.Column<string>(nullable: true),
+                    Age = table.Column<int>(nullable: false),
+                    Info = table.Column<string>(nullable: true),
+                    Pic = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

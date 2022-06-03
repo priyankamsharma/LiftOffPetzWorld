@@ -1,19 +1,23 @@
-﻿@using PetzWorld.Models;    
+﻿@using PetzWorld.Models;
 @model List<Dog>;
 
+    <body style="background-color:turquoise;">
 <div class="container body-content">
-
     <h1>@ViewBag.title</h1>
-
     <form action="/Dogs/Index" method="post">
         <h2>Search by:</h2>
-
     <div>
       <input type="radio" id="dogs" name="dogs" value="dogs"
              checked>
       <label for="dogs">Dogs</label>
     </div>
-   
         <input type="submit" value="Search" />
     </form>
 </div>
+</body>
+
+
+
+
+
+

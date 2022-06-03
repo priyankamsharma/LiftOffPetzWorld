@@ -17,7 +17,14 @@
         <th>Id</th>
         <th>Name</th>
         <th>Breed</th>
+
+        <th>Weight(lbs)</th>
+        <th>Color</th>
+        <th>Sex</th>
         <th>Age</th>
+        <th>Info</th>
+        <th>Proof of the cuteness</th>
+   
     </tr>
 
     @foreach (Dog Dog in Model)
@@ -26,7 +33,12 @@
             <td>@Dog.Id</td>
             <td>@Dog.Name</td>
             <td>@Dog.Breed</td>
+            <td>@Dog.Weight</td>
+            <td>@Dog.Color</td>
+            <td>@Dog.Sex</td>
             <td>@Dog.Age</td>
-        </tr>
+            <td>@Dog.Info</td>
+            <td>@Dog.Pic</td>
+            </tr>
     }
 </table>

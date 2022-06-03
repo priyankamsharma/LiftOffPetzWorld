@@ -4,6 +4,9 @@ using PetzWorld.Models;
 using PetzWorld.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using System;
+
 
 namespace PetzWorld.Controllers
 {
@@ -21,25 +24,37 @@ namespace PetzWorld.Controllers
             List<Dog> dogs = context.Dogs.ToList();
             return View(dogs);
         }
-        
+
         public IActionResult Form()
         {
             AddDogViewModel viewModel = new AddDogViewModel();
             return View(viewModel);
-            //return View();
         }
 
         [HttpPost]
         public IActionResult AddDog(AddDogViewModel viewModel)
         {
 
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                return View("Form", viewModel);
+                Dog dog = new Dog
+                {
+                    Name = viewModel.Name,
+                    Breed = viewModel.breed,
+                    Weight = viewModel.weight,
+                    Color = viewModel.color,
+                    Sex = viewModel.sex,
+                    Age = viewModel.age,
+                    Info = viewModel.info,
+                    Pic = viewModel.pic,
+                };
+
+                context.Dogs.Add(dog);
+                context.SaveChanges();
+                return Redirect("Index");
             }
-
-            return Redirect("Index");
+            return View("Form", viewModel);
         }
-
+        // I think we need context.Add and [something].SaveChange here? and also a for loop between line 43-49
     }
 }

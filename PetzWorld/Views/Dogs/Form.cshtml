@@ -1,5 +1,4 @@
-﻿@using PetzWorld.ViewModels;
-@model AddDogViewModel;
+﻿@model PetzWorld.ViewModels.AddDogViewModel;
 
 @{
     ViewData["Title"] = "Dogs Form";
@@ -18,11 +17,36 @@
         <span asp-validation-for="breed"></span>
     </label>
     <br />
-    <label asp-for="age"> Age: <br>
+    <label asp-for="weight"> Weight (lbs): <br>
+        <input type="text" asp-for="weight" />
+        <span asp-validation-for="weight"></span>
+    </label>
+    <br />
+        <label asp-for="color"> Color: <br>
+        <input type="text" asp-for="color" />
+        <span asp-validation-for="color"></span>
+    </label>
+    <br />
+        <label asp-for="sex"> Sex: <br>
+        <input type="text" asp-for="sex" />
+        <span asp-validation-for="sex"></span>
+    </label>
+    <br />
+        <label asp-for="age"> Age: <br>
         <input type="text" asp-for="age" />
         <span asp-validation-for="age"></span>
     </label>
     <br />
-
+        <label asp-for="info"> Info: <br>
+        <input type="text" asp-for="info" />
+        <span asp-validation-for="info"></span>
+    </label>
+    <br />
+        <label asp-for="pic"> Picture (HTML only please): <br>
+        <input type="text" asp-for="pic"/>
+        <span asp-validation-for="pic"></span>
+    </label>
+    <br />
+      
     <input type="submit" value="Add Dog"/>
 </form>
