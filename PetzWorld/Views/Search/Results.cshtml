@@ -1,43 +1,51 @@
-﻿@using PetzWorld.Models;
-@model List<Dog>;
-@{
+﻿@{
     ViewData["Title"] = "Dogs List";
 }
+
+<body style="background-color:turquoise;">
+
 <h1>Dogs Avaiable!!</h1>
-@if (ViewBag.displayDogs == 0)
+
+@if (ViewBag.displayDogs == null)
 {
      <p>No dogs have been added yet!</p>
 }
-else
-{
-    <table class="table" style="text-align:center">
-    <tr>
-        <th style="text-align:center">Id</th>
-        <th style="text-align:center">Name</th>
-        <th style="text-align:center">Breed</th>
-        <th style="text-align:center">Weight(lbs)</th>
-        <th style="text-align:center">Color</th>
-        <th style="text-align:center">Sex</th>
-        <th style="text-align:center">Age</th>
-        <th style="text-align:center">Info</th>
-        <th style="text-align:center">Proof of cuteness❤️❤️</th>
-    </tr>
+
+<table class="table" style="text-align:center">
+        <tr>
+            <th style="text-align:center">Id</th>
+            <th style="text-align:center">Name</th>
+            <th style="text-align:center">Breed</th>
+            <th style="text-align:center">Weight(lbs)</th>
+            <th style="text-align:center">Color</th>
+            <th style="text-align:center">Sex</th>
+            <th style="text-align:center">Age</th>
+            <th style="text-align:center">Info</th>
+            <th style="text-align:center">Photo ❤️</th>
+            <th style="text-align:center">Favourite</th>
+        </tr>
+
+        @*@foreach (Dog Dog in Model)*@
+        @foreach (var Animal in ViewBag.displayDogs)
+        {
+            <tr>
+                <td style="text-align:center"> @Animal.Id</td>
+                <td style="text-align:center"> @Animal.Name</td>
+                <td style="text-align:center"> @Animal.Breed</td>
+                <td style="text-align:center"> @Animal.Weight</td>
+                <td style="text-align:center"> @Animal.Color</td>
+                <td style="text-align:center"> @Animal.Sex</td>
+                <td style="text-align:center"> @Animal.Age</td>
+                <td style="text-align:center"> @Animal.Info</td>
+                <td style="text-align:center">
+                    <img height="200"; height:auto; padding:25px; border:unset" src="@Animal.Pic">
+                </td>
+                <td>
+                    <input type="radio" name="favAnimal" id="favAnimal" value="favAnimal" />
+                </td>
+            </tr>
+        }
     </table>
 
-    @foreach (Dog Dog in Model)
-    {
-        <tr>
-            <td style="text-align:center"> @ViewBag.displayDogs.Id</td>
- @*           <td style="text-align:center"> @Dog.Name</td>
-            <td style="text-align:center"> @Dog.Breed</td>
-            <td style="text-align:center"> @Dog.Weight</td>
-            <td style="text-align:center"> @Dog.Color</td>
-            <td style="text-align:center"> @Dog.Sex</td>
-            <td style="text-align:center"> @Dog.Age</td>
-            <td style="text-align:center"> @Dog.Info</td>
-            <td style="text-align:center">
-                <img height="200"; height:auto; padding:25px; border:unset" src="@Dog.Pic">
-                </td>*@
-            </tr>
-    }
-}
+<input type="submit" value="Choose your favourite one!" asp-controller="Favourite" asp-action="Index" />
+</body>

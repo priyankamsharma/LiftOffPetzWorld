@@ -38,7 +38,7 @@ namespace PetzWorld.Controllers
 
             ViewBag.displayDogs = displayDogs;
             ViewBag.title = "Searched " + searchType;
-            return View("Index");
+            return View("Results");
         }
     }
 }
