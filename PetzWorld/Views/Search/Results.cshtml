@@ -4,11 +4,13 @@
     ViewData["Title"] = "Dogs List";
 }
 <h1>Dogs Avaiable!!</h1>
-@if (Model.Count == 0)
+@if (ViewBag.displayDogs == 0)
 {
      <p>No dogs have been added yet!</p>
 }
-<table class="table" style="text-align:center">
+else
+{
+    <table class="table" style="text-align:center">
     <tr>
         <th style="text-align:center">Id</th>
         <th style="text-align:center">Name</th>
@@ -20,11 +22,13 @@
         <th style="text-align:center">Info</th>
         <th style="text-align:center">Proof of cuteness❤️❤️</th>
     </tr>
+    </table>
+
     @foreach (Dog Dog in Model)
     {
         <tr>
-            <td style="text-align:center"> @Dog.Id</td>
-            <td style="text-align:center"> @Dog.Name</td>
+            <td style="text-align:center"> @ViewBag.displayDogs.Id</td>
+ @*           <td style="text-align:center"> @Dog.Name</td>
             <td style="text-align:center"> @Dog.Breed</td>
             <td style="text-align:center"> @Dog.Weight</td>
             <td style="text-align:center"> @Dog.Color</td>
@@ -33,7 +37,7 @@
             <td style="text-align:center"> @Dog.Info</td>
             <td style="text-align:center">
                 <img height="200"; height:auto; padding:25px; border:unset" src="@Dog.Pic">
-                </td>
+                </td>*@
             </tr>
     }
-</table>
+}
