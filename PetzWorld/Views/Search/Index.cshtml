@@ -1,23 +1,23 @@
 ﻿@using PetzWorld.Models;
 @model List<Dog>;
 
-    <body style="background-color:turquoise;">
-<div class="container body-content">
-    <h1>@ViewBag.title</h1>
-    <form action="/Dogs/Index" method="post">
-        <h2>Search by:</h2>
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body style="background-color:turquoise;">
+
+<form action="/Search/Results" method="post" autocomplete="off">
     <div>
-      <input type="radio" id="dogs" name="dogs" value="dogs"
-             checked>
-      <label for="dogs">Dogs</label>
-    </div>
+     <span>
+        <input type="radio" name="searchType" id="Dogs" value="Dogs" checked />
+                    <label for="Dogs">Dogs</label>
+     </span>
+     <span>
+        <input type="radio" name="searchType" id="Cats" value="Cats" />
+                    <label for="Cats">Cats</label>
+     </span>
         <input type="submit" value="Search" />
-    </form>
-</div>
+    </div>
+</form>
 </body>
-
-
-
-
-
-
