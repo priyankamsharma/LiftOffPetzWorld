@@ -20,16 +20,22 @@
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Home" asp-action="AboutPetAdoption">About Pet Adoption</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AboutPetAdoption">About Pet Adoption</a>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Search">Search Pet</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Search" asp-action="Index">Search Pet</a>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Favourite" asp-action="Index" >Favourites</a> 
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Home" asp-action="About">About Us</a> 
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Events" asp-action="Index" >Events</a> 
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">About Us</a> 
+                        </li>
+                  
                     </ul>
                 </div>
             </div>

@@ -1,9 +1,8 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace PetzWorld.Controllers
 {
-    public class FavouriteController : Controller
+    public class EventsController : Controller
     {
         public IActionResult Index()
         {
