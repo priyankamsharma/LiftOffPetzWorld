@@ -10,6 +10,8 @@ namespace PetzWorld.Data
     public class ApplicationDbContext : IdentityDbContext
     {
         public DbSet<Dog> Dogs { get; set; }
+        public DbSet<Event> Events { get; set; }
+        public DbSet<Favourite> Favorites { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

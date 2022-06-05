@@ -9,7 +9,7 @@ using PetzWorld.Data;
 namespace PetzWorld.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220603142524_InitialMigration")]
+    [Migration("20220605173426_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -256,7 +256,27 @@ namespace PetzWorld.Migrations
                     b.ToTable("Dogs");
                 });
 
-            modelBuilder.Entity("PetzWorld.Models.Pet", b =>
+            modelBuilder.Entity("PetzWorld.Models.Event", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Events");
+                });
+
+            modelBuilder.Entity("PetzWorld.Models.Favourite", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -275,7 +295,7 @@ namespace PetzWorld.Migrations
 
                     b.HasIndex("ApplicationUserId");
 
-                    b.ToTable("Pets");
+                    b.ToTable("Favorites");
                 });
 
             modelBuilder.Entity("PetzWorld.Models.ApplicationUser", b =>
@@ -336,7 +356,7 @@ namespace PetzWorld.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("PetzWorld.Models.Pet", b =>
+            modelBuilder.Entity("PetzWorld.Models.Favourite", b =>
                 {
                     b.HasOne("PetzWorld.Models.ApplicationUser", "ApplicationUser")
                         .WithMany()

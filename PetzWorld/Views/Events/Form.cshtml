@@ -1,0 +1,26 @@
+﻿@model PetzWorld.ViewModels.AddEventViewModel;
+
+@{
+    ViewData["Title"] = "Events Form";
+}
+<body style="background-color:turquoise;">
+<h1>Add new events to database</h1>
+
+<form asp-controller="Events" asp-action="AddEvent" method="post">
+    <label asp-for="Name"> Name:<br>
+        <input type="text" asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </label>
+    <br />
+    <label asp-for="date"> Date:<br>
+        <input type="datetime" asp-for="date" />
+        <span asp-validation-for="date"></span>
+    </label>
+    <br />
+    <label asp-for="Description"> Description: <br>
+        <input type="text" asp-for="Description" />
+        <span asp-validation-for="Description"></span>
+    </label>
+     <input type="submit" value="Add Event"/>
+</form>
+</body>

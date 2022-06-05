@@ -11,7 +11,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">PetzWorld</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">  <img height="80" ; height:auto; src="https://lh3.googleusercontent.com/pw/AM-JKLUPSqjFWw_1VcrWLCxTkxECVI8tEG2U8RsarZfQzdbdIDoFL-yp4ZoJuBAX2n6kQORCaVe-fGIWkrQKVOm6nYW5zfixoZ_65nUwYXbO9qAVPBpPE7tvf7BOsSSIysALhJfeMdm5JqTrKOtSLnbBIhM=s800-no?authuser=0"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -19,23 +19,29 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
+
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AboutPetAdoption">
+                            <img height="30" ; height:auto; src="https://lh3.googleusercontent.com/pw/AM-JKLW0VCcxxKsCehxrGZ7hp7gXg1B-G1M55UyCqDfxktDZy6teaMCjXiba7S5xVzSqtaeLw1LZV9xu4RR8wUSpfOwBxm__wPmzM1QjkBgIIb6Hizj_Z7YThw375prYuwoGGaFoDtMyRkPftV1GwdDW3iY=w384-h69-no?authuser=0"></a>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Search" asp-action="Index">
+                            <img height="30" ; height:auto; src="https://lh3.googleusercontent.com/pw/AM-JKLU4w_lQXa_clpfsiPAKD1gKFZFl07Yi-ftHOnkh4QZkjyLPJNa1_HQvoSak4Sc8qjU7jgPMpyFtCWZvxi4Mn4-UclNDTYqz9p0Ytmdyka4WKbycKcxIjj2RxLqs8OT51oiFJKuwM7uop4Xy95fg_Nc=w234-h69-no?authuser=0"></a>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Favourites" asp-action="Index">
+                            <img height="30" ; height:auto; src="https://lh3.googleusercontent.com/pw/AM-JKLWCG5Ct-7iZkcbILV5N3OLsZKu5PFnrzzlCn6dnef2JY73gFAQk5GbgbCEReFaz1mmQtdqjeLCBP63GF2smbrwgreDzgca7ZHnxXmnKyKtDC7XTxPP2Ydxtu7RhAY9-mWAafyFIxYzPRbFTyfdiMSWu=w172-h69-no?authuser=0"></a>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Events" asp-action="Index">
+                            <img height="30" ; height:auto; src="https://lh3.googleusercontent.com/pw/AM-JKLWZpR_6oBFKq_kmWBlCeEh_rkoCDeXbkM2pJxfo7E0a1K9VdWzCBGSYHdchF6qPYr5M1kSUPG1yC4bZNzcTffLkYtfYvHyIm-HtIU_t_OgyQH7ZYB8yfVrt-9I5RnYUhmhDUmszXhm-QM91v4TuaIE=w135-h69-no?authuser=0"></a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AboutPetAdoption">About Pet Adoption</a>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Search" asp-action="Index">Search Pet</a>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Favourite" asp-action="Index" >Favourites</a> 
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">
+                            <img height="30" ; height:auto; src="https://lh3.googleusercontent.com/pw/AM-JKLVXbB2yIxYvpjrDzraRfjACCIOWIwezjNalCZQPoZYgQq_Gili1_JfN3rBDKBN5OBHis2HZJtjZCMovFopwSLvPhJGpwt-PmFcOtkxHNarcINTy9-hOu3hGFusZZmGP0g6mG4kPpXBRHVdZYocQykqS=w191-h69-no?authuser=0"></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Events" asp-action="Index" >Events</a> 
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">About Us</a> 
-                        </li>
-                  
+
                     </ul>
                 </div>
             </div>
@@ -48,12 +54,12 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - PetzWorld - 
-            <a class="text-muted" asp-controller="Home" asp-action="Privacy">Privacy</a> - 
-            <a class="text-muted" asp-controller="Home" asp-action="FAQ">FAQ</a> -
-            <a class="text-muted" asp-controller="Home" asp-action="About">About Us</a> - 
-            <a class="text-muted" href="mailto:www.petzworld.com">Contact Us</a>               
+        <div class="container" style="text-align:left">
+               <a class="text-muted" asp-controller="Home" asp-action="Index"><img height="30" ; height:auto; src="https://lh3.googleusercontent.com/pw/AM-JKLUhRmtvSYldzr3Ehj2Gcr4Y4GW8sEmzMwvukHi0m-jS4xnNSahGG5PauqA-Fz4DUAlE915NU4w2yb_zYpOmcr5bxyNrq4GnIUx6RhXSj3oT4tGa3MlwSjxgOJTKsZHtfQVd0ltaN0qqlB3RRNNMeLtX=w210-h69-no?authuser=0"></a> -          
+            <a class="text-muted" asp-controller="Home" asp-action="Privacy"><img height="30" ; height:auto; src="https://lh3.googleusercontent.com/pw/AM-JKLW5NRxgL5OP6VN60Q1XNr4LvnxiENH3MOpqRBX9lO8tV3W8xJhLlbErNkPOGXFL0bVVQEWOit8dBgRf5IdwVa6qXkTCflz6AFSovctHy-EqNLwC0ek-ob7WyCR4dYL9n1YhFrxcj7Tdqv2T0MKl8Cmq=w150-h71-no?authuser=0"></a> -
+            <a class="text-muted" asp-controller="Home" asp-action="FAQ"><img height="30" ; height:auto; src="https://lh3.googleusercontent.com/pw/AM-JKLUpakKpD0vVh7qtcIcQgDBVPCz7Eb9Sort897KmzCXaWwMwVi_ngp1vALjXktbadVpDc6YWN1u5byB_u7Kitr-h4QvfCUFiDARHYa1Yu7kGHJZpD7qZBLT8UppdYSv7VAv3pfmxMY-oXTsh8AgTkPg=w118-h69-no?authuser=0"></a> -
+            <a class="text-muted" asp-controller="Home" asp-action="About"><img height="30" ; height:auto; src="https://lh3.googleusercontent.com/pw/AM-JKLVXbB2yIxYvpjrDzraRfjACCIOWIwezjNalCZQPoZYgQq_Gili1_JfN3rBDKBN5OBHis2HZJtjZCMovFopwSLvPhJGpwt-PmFcOtkxHNarcINTy9-hOu3hGFusZZmGP0g6mG4kPpXBRHVdZYocQykqS=w191-h69-no?authuser=0"></a> -
+            <a class="text-muted" href="mailto:admin@petzworld.com"><img height="30" ; height:auto; src="https://lh3.googleusercontent.com/pw/AM-JKLXe5Sqc5yDEF1-tX-jDHC5_0o19W5Qz5NCFVd62AX81BvuKbOsgdZ0_E_1UqFdAhv7ON1wuO357NAPsq_ovOIWsO2Y1_jAe7fcTjzDOEklDQTXDNB5Kx9kJs9HqB3ozxlgOR4AvWJIKpLGNrle4vsw=w227-h69-no?authuser=0"></a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

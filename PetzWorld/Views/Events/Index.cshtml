@@ -1,13 +1,33 @@
-﻿@{
+﻿@using PetzWorld.Models;
+@model List<Event>;
+
+@{
     ViewData["Title"] = "Events";
 }
 
-<h1></h1>
-
 <body style="background-color:turquoise;">
 
+<h1>List of all upcoming Events</h1>
 
+@if (Model.Count == 0)
+{
+     <p>No upcoming events!</p>
+}
 
+<table class="table" style="text-align:center">
+    <tr>
+        <th style="text-align:center">Name</th>
+        <th style="text-align:center">Date</th>
+        <th style="text-align:center">Description</th>
+    </tr>
 
-
+    @foreach (Event newEvents in Model)
+    {
+        <tr>
+            <td style="text-align:center"> @newEvents.Name</td>
+            <td style="text-align:center"> @newEvents.Date</td>
+            <td style="text-align:center"> @newEvents.Description</td>
+        </tr>
+    }
+</table>
 </body>

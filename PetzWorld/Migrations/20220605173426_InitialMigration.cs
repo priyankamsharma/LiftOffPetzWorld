@@ -69,6 +69,21 @@ namespace PetzWorld.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Events",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(nullable: true),
+                    Date = table.Column<DateTime>(nullable: false),
+                    Description = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Events", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -175,7 +190,7 @@ namespace PetzWorld.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Pets",
+                name: "Favorites",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -186,9 +201,9 @@ namespace PetzWorld.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Pets", x => x.Id);
+                    table.PrimaryKey("PK_Favorites", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Pets_AspNetUsers_ApplicationUserId",
+                        name: "FK_Favorites_AspNetUsers_ApplicationUserId",
                         column: x => x.ApplicationUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
@@ -233,8 +248,8 @@ namespace PetzWorld.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Pets_ApplicationUserId",
-                table: "Pets",
+                name: "IX_Favorites_ApplicationUserId",
+                table: "Favorites",
                 column: "ApplicationUserId");
         }
 
@@ -259,7 +274,10 @@ namespace PetzWorld.Migrations
                 name: "Dogs");
 
             migrationBuilder.DropTable(
-                name: "Pets");
+                name: "Events");
+
+            migrationBuilder.DropTable(
+                name: "Favorites");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
