@@ -10,7 +10,7 @@ namespace PetzWorld.ViewModels
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Date is required!")]
-        public DateTime date { get; set; }
+        public DateTime dateTime { get; set; }
 
         public string Description { get; set; }
 

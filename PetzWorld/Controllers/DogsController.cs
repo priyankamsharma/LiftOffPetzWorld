@@ -55,6 +55,14 @@ namespace PetzWorld.Controllers
             }
             return View("Form", viewModel);
         }
-        // I think we need context.Add and [something].SaveChange here? and also a for loop between line 43-49
+        public IActionResult Edit()
+        {
+            return View();
+        }
+
+        public IActionResult Delete()
+        {
+            return View();
+        }
     }
 }

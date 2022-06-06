@@ -39,7 +39,7 @@ namespace PetzWorld.Controllers
                 Event newEvent = new Event
                 {
                     Name = ViewModel.Name,
-                    Date = ViewModel.date,
+                    Date = ViewModel.dateTime,
                     Description = ViewModel.Description
                 };
 
@@ -48,6 +48,16 @@ namespace PetzWorld.Controllers
                 return Redirect("Index");
             }
             return View("Form", ViewModel);
+        }
+
+        public IActionResult Edit()
+        {
+            return View();
+        }
+
+        public IActionResult Delete()
+        {
+            return View();
         }
     }
 }

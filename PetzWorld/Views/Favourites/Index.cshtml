@@ -1,5 +1,5 @@
 ﻿@using PetzWorld.Models;
-@model List<Dog>;
+@model List<Favourite>;
 @{
     ViewData["Title"] = "Favourites";
 }
@@ -16,31 +16,22 @@
 }
 <table class="table" style="text-align:center">
     <tr>
-        <th style="text-align:center">Id</th>
-        <th style="text-align:center">Name</th>
-        <th style="text-align:center">Breed</th>
-        <th style="text-align:center">Weight(lbs)</th>
-        <th style="text-align:center">Color</th>
-        <th style="text-align:center">Sex</th>
-        <th style="text-align:center">Age</th>
-        <th style="text-align:center">Info</th>
-        <th style="text-align:center">Pic❤️</th>
+        <th style="text-align:center">Username</th>
+        <th style="text-align:center">DogId</th>
+        <th style="text-align:center">Dog Name</th>
     </tr>
-    @foreach (Dog Dog in Model)
+    @foreach (Favourite Fav in Model)
     {
         <tr>
-            <td style="text-align:center"> @Dog.Id</td>
-            <td style="text-align:center"> @Dog.Name</td>
-            <td style="text-align:center"> @Dog.Breed</td>
-            <td style="text-align:center"> @Dog.Weight</td>
-            <td style="text-align:center"> @Dog.Color</td>
-            <td style="text-align:center"> @Dog.Sex</td>
-            <td style="text-align:center"> @Dog.Age</td>
-            <td style="text-align:center"> @Dog.Info</td>
-            <td style="text-align:center">
-                <img height="200"; height:auto; padding:25px; border:unset" src="@Dog.Pic">
-                </td>
+            <td>
+                <input type="radio" name="deleteFav" id="deleteFav" value="deleteFav" />
+            </td>
+            <td style="text-align:center"> @Fav.ApplicationUser.UserName</td>
+            <td style="text-align:center"> @Fav.Id</td>
+            <td style="text-align:center"> @Fav.Name</td>
             </tr>
     }
 </table>
+
+<input type="submit" value="Delete Favourites">
 </body>

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Security.Claims;
 
 namespace PetzWorld.Controllers
 {
@@ -20,6 +21,8 @@ namespace PetzWorld.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.currentUserId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            ViewBag.userName = this.User.FindFirstValue(ClaimTypes.Name);
             List<Favourite> Favourites = context.Favorites.ToList();
             return View(Favourites);    
         }
