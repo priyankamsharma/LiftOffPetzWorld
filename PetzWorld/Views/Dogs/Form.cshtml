@@ -13,8 +13,23 @@
     </label>
     <br />
     <label asp-for="breed"> Breed:<br>
-        <input type="text" asp-for="breed" />
-        
+        <select asp-for="breed" id="breed" name="breed">
+            <option value="" ></option>
+            <option value="goldenretriever">Golden Retriever</option>
+            <option value="labradorretriever">Labrador Retriever</option>
+            <option value="doodle">Doodle</option>
+            <option value="poodle">Poodle</option>
+            <option value="pug">Pug</option>
+            <option value="englishbulldog">English BullDog</option>
+            <option value="frenchbulldog">French Bulldog</option>
+            <option value="germanshepherd">German Shepherd</option>
+            <option value="beagle">Beagle</option>
+            <option value="rottweiler">Rottweiler</option>
+            <option value="doodle">Doodle</option>
+            <option value="shihtzu">Shih Tzu</option>
+            <option value="husky">Husky</option>
+            <option value="mix">Mix/Other</option>
+        </select>
         <span asp-validation-for="breed"></span>
     </label>
     <br />
@@ -29,7 +44,10 @@
     </label>
     <br />
         <label asp-for="sex"> Sex: <br>
-        <input type="text" asp-for="sex" />
+        <select asp-for="sex" id="sex" name="sex">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
         <span asp-validation-for="sex"></span>
     </label>
     <br />
@@ -43,7 +61,7 @@
         <span asp-validation-for="info"></span>
     </label>
     <br />
-        <label asp-for="pic"> Picture (HTML only please): <br>
+        <label asp-for="pic"> Picture (URL please): <br>
         <input type="text" asp-for="pic"/>
         <span asp-validation-for="pic"></span>
     </label>
