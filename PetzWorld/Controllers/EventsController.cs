@@ -50,15 +50,22 @@ namespace PetzWorld.Controllers
             return View("Form", ViewModel);
         }
 
-        public IActionResult Edit()
+        public IActionResult Delete()
         {
+            ViewBag.allEvents = context.Events.ToList();
             return View();
         }
 
-        public IActionResult Delete()
-        {
-            return View();
-        }
+        //[HttpPost]
+        //public IActionResult Delete(int[] Id)
+        //{
+        //    foreach (var eventdata in Id)
+        //    {
+        //        context.Events.Remove(eventdata);
+        //    }
+
+        //    return Redirect("/events");
+        //}
     }
 }
 
