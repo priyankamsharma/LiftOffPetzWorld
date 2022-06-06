@@ -6,6 +6,13 @@
 
 <body style="background-color:turquoise;">
 
+<p>
+    <a asp-controller="Dogs" asp-action="Form">Add Dogs</a>
+</p>
+<p>
+    <a asp-controller="Dogs" asp-action="Delete">Delete Dog data</a>
+</p>
+
 <h1>List of all Dogs</h1>
 @if (Model.Count == 0)
 {
@@ -36,8 +43,12 @@
             <td style="text-align:center"> @Dog.Info</td>
             <td style="text-align:center">
                 <img height="200"; height:auto; padding:25px; border:unset" src="@Dog.Pic">
-                </td>
+            </td>
+            <td><a asp-controller="Dogs" asp-action="Edit" asp-route-id="">Edit</a></td>
+
             </tr>
     }
 </table>
+
+
 </body>

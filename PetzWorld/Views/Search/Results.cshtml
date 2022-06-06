@@ -26,19 +26,19 @@
         </tr>
 
         @*@foreach (Dog Dog in Model)*@
-        @foreach (var Animal in ViewBag.displayDogs)
+        @foreach (var Dog in ViewBag.displayDogs)
         {
             <tr>
-                <td style="text-align:center"> @Animal.Id</td>
-                <td style="text-align:center"> @Animal.Name</td>
-                <td style="text-align:center"> @Animal.Breed</td>
-                <td style="text-align:center"> @Animal.Weight</td>
-                <td style="text-align:center"> @Animal.Color</td>
-                <td style="text-align:center"> @Animal.Sex</td>
-                <td style="text-align:center"> @Animal.Age</td>
-                <td style="text-align:center"> @Animal.Info</td>
+                <td style="text-align:center"> @Dog.Id</td>
+                <td style="text-align:center"> @Dog.Name</td>
+                <td style="text-align:center"> @Dog.Breed</td>
+                <td style="text-align:center"> @Dog.Weight</td>
+                <td style="text-align:center"> @Dog.Color</td>
+                <td style="text-align:center"> @Dog.Sex</td>
+                <td style="text-align:center"> @Dog.Age</td>
+                <td style="text-align:center"> @Dog.Info</td>
                 <td style="text-align:center">
-                    <img height="200"; height:auto; padding:25px; border:unset" src="@Animal.Pic">
+                    <img height="200"; height:auto; padding:25px; border:unset" src="@Dog.Pic">
                 </td>
                 <td>
                     <input type="radio" name="favAnimal" id="favAnimal" value="favAnimal" />
@@ -47,5 +47,8 @@
         }
     </table>
 
-<input type="submit" value="Choose your favourite one!" asp-controller="Favourite" asp-action="Index" />
+<p>
+    <a asp-controller="Favourites" asp-action="Index">Choose your Favourites!</a>
+</p>
+
 </body>

@@ -1,5 +1,16 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿<h1>Delete Events</h1>
+
+<form method="post">
+   @foreach (var eventdata in ViewBag.allEvents)
+   {
+      <div class="form-group">
+            <label>
+               <span>eventData.Name</span>
+               <input type="checkbox" name="deleteEvents" value="@eventdata.Id" class="form-control">
+            </label>
+      </div>
+   }
+
+   <input type="submit" value="Delete Events" class="btn btn-danger">
+
+</form>
