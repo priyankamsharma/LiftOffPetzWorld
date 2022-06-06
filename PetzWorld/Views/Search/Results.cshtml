@@ -1,10 +1,6 @@
-﻿@{
-    ViewData["Title"] = "Dogs List";
-}
+﻿<h1>@ViewBag.title</h1>
 
 <body style="background-color:turquoise;">
-
-<h1>Dogs Avaiable!!</h1>
 
 @if (ViewBag.displayDogs == null)
 {
@@ -25,7 +21,6 @@
             <th style="text-align:center">Favourite</th>
         </tr>
 
-        @*@foreach (Dog Dog in Model)*@
         @foreach (var Dog in ViewBag.displayDogs)
         {
             <tr>

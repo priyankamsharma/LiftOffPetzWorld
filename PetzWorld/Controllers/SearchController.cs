@@ -27,17 +27,26 @@ namespace PetzWorld.Controllers
             return View(dogs);
         }
 
-        public IActionResult Results(string searchType)
+        public IActionResult Results(string searchType, string searchTerm)
         {
             List<Dog> displayDogs = new List<Dog>();
 
             if (searchType == "dogs" || searchType == "Dogs")
             {
-                displayDogs = context.Dogs.ToList();
+                if (searchTerm == "all")
+                {
+                    displayDogs = context.Dogs.ToList();
+                }
+                else
+                {
+                    displayDogs = context.Dogs
+                        .Where(j => j.Breed == searchTerm)
+                        .ToList();
+                }
             }
 
             ViewBag.displayDogs = displayDogs;
-            ViewBag.title = "Searched " + searchType;
+            ViewBag.title = "Searched " + searchType + " : " + searchTerm;
             return View("Results");
         }
     }
