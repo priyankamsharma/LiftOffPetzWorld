@@ -1,16 +1,17 @@
-﻿<h1>Delete Events</h1>
+﻿<body style="background-color:turquoise;"></body>
 
-<form method="post">
-   @foreach (var eventdata in ViewBag.allEvents)
+<h1>Delete Events</h1>
+
+<form asp-controller="Events" asp-action="Delete" method="post">
+   @foreach (var eventdata in ViewBag.events)
    {
       <div class="form-group">
             <label>
-               <span>eventData.Name</span>
-               <input type="checkbox" name="deleteEvents" value="@eventdata.Id" class="form-control">
+               <span>@eventdata.Name</span>
+               <input type="checkbox" name="eventIds" value="@eventdata.Id" class="form-control">
             </label>
       </div>
    }
 
-   <input type="submit" value="Delete Events" class="btn btn-danger">
-
+   <input type="submit" value="Delete Selected Events" class="btn-primary" />
 </form>

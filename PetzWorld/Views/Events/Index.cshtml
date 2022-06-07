@@ -1,17 +1,15 @@
-﻿@using PetzWorld.Models;
-@model List<Event>;
+﻿@model List<PetzWorld.Models.Event>
+@*
+@using PetzWorld.Models;
+@model List<Event>;*@
 
-@{
-    ViewData["Title"] = "Events";
-}
-
-<body style="background-color:turquoise;">
+<body style="background-color:turquoise;"></body>
 
 <p>
-    <a asp-controller="Events" asp-action="Form">Add Event</a>
+    <a asp-controller="Events" asp-action="Add"/>Add Event</a>
 </p>
 <p>
-    <a asp-controller="Events" asp-action="Delete">Delete Event</a>
+    <a asp-controller="Events" asp-action="Delete"/>Delete Event</a>
 </p>
 
 <h1>List of all upcoming Events</h1>
@@ -21,9 +19,9 @@
      <p>No upcoming events!</p>
 }
 
-
 <table class="table" style="text-align:center">
     <tr>
+        <th style="text-align:center">Id</th>
         <th style="text-align:center">Name</th>
         <th style="text-align:center">Date</th>
         <th style="text-align:center">Description</th>
@@ -32,11 +30,10 @@
     @foreach (Event newEvents in Model)
     {
         <tr>
+            <td style="text-align:center"> @newEvents.Id</td>
             <td style="text-align:center"> @newEvents.Name</td>
             <td style="text-align:center"> @newEvents.Date</td>
             <td style="text-align:center"> @newEvents.Description</td>
-            <td><a asp-controller="Events" asp-action="Edit" asp-route-id="">Edit Event</a></td>
         </tr>
     }
 </table>
-</body>
