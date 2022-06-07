@@ -1,26 +1,17 @@
-﻿@using PetzWorld.Models;
-@model List<Event>;
-
-@{
-    ViewData["Title"] = "Delete Events";
-}
-
-<body style="background-color:turquoise;">
+﻿<body style="background-color:turquoise;"></body>
 
 <h1>Delete Events</h1>
 
 <form asp-controller="Events" asp-action="Delete" method="post">
-   @foreach (var eventdata in ViewBag.allEvents)
+   @foreach (var eventdata in ViewBag.events)
    {
       <div class="form-group">
             <label>
                <span>@eventdata.Name</span>
-               <input type="checkbox" name="delete" value="@eventdata.Id" class="form-control">
+               <input type="checkbox" name="eventIds" value="@eventdata.Id" class="form-control">
             </label>
       </div>
    }
 
-   <input type="submit" value="Delete Events" class="btn-primary" />
-
+   <input type="submit" value="Delete Selected Events" class="btn-primary" />
 </form>
-</body>

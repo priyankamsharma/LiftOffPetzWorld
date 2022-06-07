@@ -24,48 +24,50 @@ namespace PetzWorld.Controllers
             return View(newEvents);
         }
 
-        public IActionResult Form()
+        public IActionResult Add()
         {
             AddEventViewModel eventViewModel = new AddEventViewModel();
             return View(eventViewModel);
         }
 
         [HttpPost]
-        public IActionResult AddEvent(AddEventViewModel ViewModel)
+        public IActionResult Add(AddEventViewModel addEventViewModel)
         {
-
             if (ModelState.IsValid)
             {
                 Event newEvent = new Event
                 {
-                    Name = ViewModel.Name,
-                    Date = ViewModel.dateTime,
-                    Description = ViewModel.Description
+                    Name = addEventViewModel.Name,
+                    Date = addEventViewModel.DateTime,
+                    Description = addEventViewModel.Description
                 };
 
                 context.Events.Add(newEvent);
                 context.SaveChanges();
-                return Redirect("Index");
+                return Redirect("/Events");
             }
-            return View("Form", ViewModel);
+            return View(addEventViewModel);
         }
 
         public IActionResult Delete()
         {
-            ViewBag.allEvents = context.Events.ToList();
+            ViewBag.events = context.Events.ToList();
             return View();
         }
 
-        //[HttpPost]
-        //public IActionResult Delete(int[] Id)
-        //{
-        //    foreach (var eventdata in Id)
-        //    {
-        //        context.Events.Remove(eventdata);
-        //    }
+        [HttpPost]
+        public IActionResult Delete(int[] eventIds)
+        {
+            foreach (int eventId in eventIds)
+            {
+                Event theEvent = context.Events.Find(eventId);
+                context.Events.Remove(theEvent);
+            }
+            context.SaveChanges();
 
-        //    return Redirect("/events");
-        //}
+            return Redirect("/Events");
+        }
     }
 }
+
 

@@ -1,14 +1,12 @@
-﻿@using PetzWorld.Models;
-@model List<Event>;
+﻿@model List<PetzWorld.Models.Event>
+@*
+@using PetzWorld.Models;
+@model List<Event>;*@
 
-@{
-    ViewData["Title"] = "Events";
-}
-
-<body style="background-color:turquoise;">
+<body style="background-color:turquoise;"></body>
 
 <p>
-    <a asp-controller="Events" asp-action="Form"/>Add Event</a>
+    <a asp-controller="Events" asp-action="Add"/>Add Event</a>
 </p>
 <p>
     <a asp-controller="Events" asp-action="Delete"/>Delete Event</a>
@@ -39,4 +37,3 @@
         </tr>
     }
 </table>
-</body>
