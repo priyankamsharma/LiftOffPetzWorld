@@ -11,7 +11,6 @@ namespace PetzWorld.ViewModels
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Breed needed")]
-
         public string breed { get; set; }
         public int weight { get; set; }
         public string color { get; set; }
