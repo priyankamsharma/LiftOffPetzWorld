@@ -1,6 +1,6 @@
 ﻿<h1>@ViewBag.title</h1>
 
-<body style="background-color:turquoise;">
+<body style="background-color:turquoise;"></body>
 
 @if (ViewBag.displayDogs == null)
 {
@@ -42,8 +42,4 @@
         }
     </table>
 
-<p>
-    <a asp-controller="Favourites" asp-action="Index">Choose your Favourites!</a>
-</p>
-
-</body>
+<a asp-controller="Favourites" asp-action="Index" method="post">Choose your Favourites!</a>

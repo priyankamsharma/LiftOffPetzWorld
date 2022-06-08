@@ -1,10 +1,5 @@
 ﻿@using PetzWorld.Models;
 @model List<Favourite>;
-@{
-    ViewData["Title"] = "Favourites";
-}
-
-<h1></h1>
 
 <body style="background-color:turquoise;">
 
@@ -23,15 +18,25 @@
     @foreach (Favourite Fav in Model)
     {
         <tr>
-            <td>
-                <input type="radio" name="deleteFav" id="deleteFav" value="deleteFav" />
-            </td>
             <td style="text-align:center"> @Fav.ApplicationUser.UserName</td>
             <td style="text-align:center"> @Fav.Id</td>
             <td style="text-align:center"> @Fav.Name</td>
             </tr>
     }
 </table>
+
+@*<form asp-controller="Favourites" asp-action="Delete" method="post">
+   @foreach (var favdata in ViewBag.favourites)
+   {
+      <div class="form-group">
+            <label>
+               <span>@favdata.Id : @favdata.Name</span>
+               <input type="checkbox" name="favIds" value="@favdata.Id" class="form-control">
+            </label>
+      </div>
+   }
+   <input type="submit" value="Delete Selected Favourites" class="btn-primary" />
+</form>*@
 
 <input type="submit" value="Delete Favourites">
 </body>

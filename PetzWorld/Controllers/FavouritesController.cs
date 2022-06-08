@@ -26,6 +26,51 @@ namespace PetzWorld.Controllers
             List<Favourite> Favourites = context.Favorites.ToList();
             return View(Favourites);    
         }
+
+        public IActionResult Add()
+        {
+            AddFavouriteViewModel favViewModel = new AddFavouriteViewModel();
+            return View(favViewModel);
+        }
+
+        [HttpPost]
+        public IActionResult Add(AddFavouriteViewModel addFavouriteViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                Favourite newFav = new Favourite
+                {
+                    DogId = addFavouriteViewModel.DogId,
+                    Name = addFavouriteViewModel.Name,
+                    ApplicationUser = addFavouriteViewModel.ApplicationUser,
+                    ApplicationUserId = addFavouriteViewModel.ApplicationUserId
+                };
+
+                context.Favorites.Add(newFav);
+                context.SaveChanges();
+                return Redirect("/Favourites");
+            }
+            return View(addFavouriteViewModel);
+        }
+
+        public IActionResult Delete()
+        {
+            ViewBag.favourites = context.Favorites.ToList();
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Delete(int[] favIds)
+        {
+            foreach (int favId in favIds)
+            {
+                Favourite theFav = context.Favorites.Find(favId);
+                context.Favorites.Remove(theFav);
+            }
+            context.SaveChanges();
+            
+            return Redirect("/Favourites");
+        }
     }
 }
 
