@@ -1,0 +1,20 @@
+﻿@using PetzWorld.Models;
+@model List<Event>;
+
+<body style="background-color:turquoise;"></body>
+
+<h1>Upcoming Events you wish to Volunteer!</h1>
+
+<form asp-controller="Volunteers" asp-action="Add" method="post">
+   @foreach (var eventdata in ViewBag.Events)
+   {
+      <div class="form-group">
+            <label>
+               <span>@eventdata.Name</span>
+               <input type="checkbox" name="eventIds" value="@eventdata.Id" class="form-control">
+            </label>
+      </div>
+   }
+
+   <input type="submit" value="Add Volunteer" class="btn-primary" />
+</form>

@@ -296,6 +296,31 @@ namespace PetzWorld.Migrations
                     b.ToTable("Favorites");
                 });
 
+            modelBuilder.Entity("PetzWorld.Models.Volunteer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<int>("EventId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("EventName")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.ToTable("Volunteers");
+                });
+
             modelBuilder.Entity("PetzWorld.Models.ApplicationUser", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
@@ -355,6 +380,13 @@ namespace PetzWorld.Migrations
                 });
 
             modelBuilder.Entity("PetzWorld.Models.Favourite", b =>
+                {
+                    b.HasOne("PetzWorld.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId");
+                });
+
+            modelBuilder.Entity("PetzWorld.Models.Volunteer", b =>
                 {
                     b.HasOne("PetzWorld.Models.ApplicationUser", "ApplicationUser")
                         .WithMany()

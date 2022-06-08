@@ -1,0 +1,9 @@
+﻿<h1>Edit @ViewBag.info Info:</h1>
+
+<form asp-controller="Dogs" asp-action="EditInfo" method="post">
+    <div class="form-group">
+        <label for="info">New Info: </label>
+        <input type="text" name="info" />
+    </div>
+    <input type="submit" value="Change Info" />
+</form>

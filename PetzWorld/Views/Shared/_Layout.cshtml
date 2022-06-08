@@ -11,6 +11,92 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">  <img height="80" ; height:auto; src="img/petzred.png"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <partial name="_LoginPartial" />
+                    <ul class="navbar-nav flex-grow-1">
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AboutPetAdoption">
+                                <img height="30" ; height:auto; src="img/buttonAPA.png">
+                            </a>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Search" asp-action="Index">
+                                <img height="30" ; height:auto; src="img/buttonSP.png">
+                            </a>
+
+                        @*<li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Favourites" asp-action="Index">
+                                <img height="30" ; height:auto; src="img/buttonF.png">
+                            </a>
+                        </li>*@
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Events" asp-action="Index">
+                                <img height="30" ; height:auto; src="img/buttonE.png">
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Volunteers" asp-action="Index">
+                                <img height="30" ; height:auto; src="img/buttonV.png">
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">
+                                <img height="30" ; height:auto; src="img/buttonA.png">
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container" style="text-align:left">
+            <a class="text-muted" asp-controller="Home" asp-action="Index"><img height="30" ; height:auto; src="img/buttonPW.png"></a> -
+            <a class="text-muted" asp-controller="Home" asp-action="Privacy"><img height="30" ; height:auto; src="img/buttonP.png"></a> -
+            <a class="text-muted" asp-controller="Home" asp-action="FAQ"><img height="30" ; height:auto; src="img/buttonFAQ.png"></a> -
+            <a class="text-muted" asp-controller="Home" asp-action="About"><img height="30" ; height:auto; src="img/buttonA.png"></a> -
+            <a class="text-muted" href="mailto:admin@petzworld.com"><img height="30" ; height:auto; src="img/buttonCU.png"></a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+
+
+
+
+@*<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - PetzWorld</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">  <img height="80" ; height:auto; src="https://lh3.googleusercontent.com/pw/AM-JKLUPSqjFWw_1VcrWLCxTkxECVI8tEG2U8RsarZfQzdbdIDoFL-yp4ZoJuBAX2n6kQORCaVe-fGIWkrQKVOm6nYW5zfixoZ_65nUwYXbO9qAVPBpPE7tvf7BOsSSIysALhJfeMdm5JqTrKOtSLnbBIhM=s800-no?authuser=0"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -38,7 +124,11 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Volunteers" asp-action="Index">Volunteer</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About" >
                             <img height="30" ; height:auto; src="https://lh3.googleusercontent.com/pw/AM-JKLVXbB2yIxYvpjrDzraRfjACCIOWIwezjNalCZQPoZYgQq_Gili1_JfN3rBDKBN5OBHis2HZJtjZCMovFopwSLvPhJGpwt-PmFcOtkxHNarcINTy9-hOu3hGFusZZmGP0g6mG4kPpXBRHVdZYocQykqS=w191-h69-no?authuser=0"></a>
                         </li>
 
@@ -67,4 +157,4 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>
-</html>
+</html>*@

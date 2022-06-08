@@ -1,0 +1,30 @@
+﻿<h1>@ViewBag.title</h1>
+
+<body style="background-color:turquoise;"></body>
+
+@if (ViewBag.displayVolunteers == null)
+{
+     <p>No volunteer role added for upcoming events yet!</p>
+}
+
+<table class="table" style="text-align:center">
+        <tr>
+            <th style="text-align:center">Id</th>
+            <th style="text-align:center">Event Name</th>
+            <th style="text-align:center">Description</th>
+        </tr>
+
+        @foreach (var Volunteer in ViewBag.displayVolunteers)
+        {
+            <tr>
+                <div class="form-group">
+                    <input type="checkbox" name="volunteerIds" value="@Volunteer.Id" class="form-control"> 
+                </div>
+                <td style="text-align:center"> @Volunteer.EventId</td>
+                <td style="text-align:center"> @Volunteer.EventName</td>
+                <td style="text-align:center"> @Volunteer.Description</td>
+            </tr>
+        }
+    </table>
+
+<a asp-controller="Volunteers" asp-action="Delete" method="post">Delete Volunteer work for event!</a>
