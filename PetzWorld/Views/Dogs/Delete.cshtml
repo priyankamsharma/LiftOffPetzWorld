@@ -1,5 +1,19 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿<body style="background-color:turquoise;"></body>
+
+<h1>Delete dogs data</h1>
+
+<form asp-controller="Dogs" asp-action="Delete" method="post">
+   @foreach (var dogdata in ViewBag.dogs)
+   {
+      <div class="form-group">
+            <label>
+
+               <span>@dogdata.Id : @dogdata.Name : @dogdata.Breed </span>
+
+               <input type="checkbox" name="dogIds" value="@dogdata.Id" class="form-control">
+            </label>
+      </div>
+   }
+
+   <input type="submit" value="Delete Selected Dogs" class="btn-primary" />
+</form>

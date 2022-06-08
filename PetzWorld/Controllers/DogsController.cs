@@ -32,28 +32,28 @@ namespace PetzWorld.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddDog(AddDogViewModel viewModel)
+        public IActionResult AddDog(AddDogViewModel addDogViewModel)
         {
 
             if (ModelState.IsValid)
             {
                 Dog dog = new Dog
                 {
-                    Name = viewModel.Name,
-                    Breed = viewModel.breed,
-                    Weight = viewModel.weight,
-                    Color = viewModel.color,
-                    Sex = viewModel.sex,
-                    Age = viewModel.age,
-                    Info = viewModel.info,
-                    Pic = viewModel.pic,
+                    Name = addDogViewModel.Name,
+                    Breed = addDogViewModel.breed,
+                    Weight = addDogViewModel.weight,
+                    Color = addDogViewModel.color,
+                    Sex = addDogViewModel.sex,
+                    Age = addDogViewModel.age,
+                    Info = addDogViewModel.info,
+                    Pic = addDogViewModel.pic,
                 };
 
                 context.Dogs.Add(dog);
                 context.SaveChanges();
                 return Redirect("Index");
             }
-            return View("Form", viewModel);
+            return View("Form", addDogViewModel);
         }
         public IActionResult Edit()
         {
@@ -62,7 +62,21 @@ namespace PetzWorld.Controllers
 
         public IActionResult Delete()
         {
+            ViewBag.dogs = context.Dogs.ToList();
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Delete(int[] dogIds)
+        {
+            foreach (int dogId in dogIds)
+            {
+                Dog theDog = context.Dogs.Find(dogId);
+                context.Dogs.Remove(theDog);
+            }
+            context.SaveChanges();
+
+            return Redirect("/Dogs");
         }
     }
 }
