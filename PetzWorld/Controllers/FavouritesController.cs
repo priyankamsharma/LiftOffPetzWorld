@@ -7,9 +7,11 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PetzWorld.Controllers
 {
+    [Authorize]
     public class FavouritesController : Controller
     {
         private ApplicationDbContext context;
@@ -21,8 +23,6 @@ namespace PetzWorld.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.currentUserId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            ViewBag.userName = this.User.FindFirstValue(ClaimTypes.Name);
             List<Favourite> Favourites = context.Favorites.ToList();
             return View(Favourites);    
         }
@@ -59,7 +59,7 @@ namespace PetzWorld.Controllers
             return View();
         }
 
-        [HttpPost]
+        [HttpPost("/Favourites/Delete")]
         public IActionResult Delete(int[] favIds)
         {
             foreach (int favId in favIds)

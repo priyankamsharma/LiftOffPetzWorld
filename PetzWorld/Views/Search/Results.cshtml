@@ -1,45 +1,50 @@
 ﻿<h1>@ViewBag.title</h1>
 
-<body style="background-color:turquoise;"></body>
+<body style="background-color:turquoise;">
+</body>
 
 @if (ViewBag.displayDogs == null)
 {
-     <p>No dogs have been added yet!</p>
+    <p>No dogs have been added yet!</p>
 }
 
 <table class="table" style="text-align:center">
+    <tr>
+        <th style="text-align:center">Id</th>
+        <th style="text-align:center">Name</th>
+        <th style="text-align:center">Breed</th>
+        <th style="text-align:center">Weight(lbs)</th>
+        <th style="text-align:center">Color</th>
+        <th style="text-align:center">Sex</th>
+        <th style="text-align:center">Age</th>
+        <th style="text-align:center">Info</th>
+        <th style="text-align:center">Photo ❤️</th>
+        <th style="text-align:center">Favourite</th>
+    </tr>
+
+    @foreach (var Dog in ViewBag.displayDogs)
+    {
         <tr>
-            <th style="text-align:center">Id</th>
-            <th style="text-align:center">Name</th>
-            <th style="text-align:center">Breed</th>
-            <th style="text-align:center">Weight(lbs)</th>
-            <th style="text-align:center">Color</th>
-            <th style="text-align:center">Sex</th>
-            <th style="text-align:center">Age</th>
-            <th style="text-align:center">Info</th>
-            <th style="text-align:center">Photo ❤️</th>
-            <th style="text-align:center">Favourite</th>
+            <td style="text-align:center"> @Dog.Id</td>
+            <td style="text-align:center"> @Dog.Name</td>
+            <td style="text-align:center"> @Dog.Breed</td>
+            <td style="text-align:center"> @Dog.Weight</td>
+            <td style="text-align:center"> @Dog.Color</td>
+            <td style="text-align:center"> @Dog.Sex</td>
+            <td style="text-align:center"> @Dog.Age</td>
+            <td style="text-align:center"> @Dog.Info</td>
+            <td style="text-align:center">
+                <img height="200" ; height:auto; padding:25px; border:unset" src="@Dog.Pic">
+            </td>
+            <td>
+                <form asp-controller="Search" asp-action="FavAdd" asp-area="" method="post">
+                    @*<label>@Dog.Id : @Dog.Name : @Dog.Breed </label>*@
+                    <input type="radio" name="favAnimal" id="favAnimal" value="@Dog.Id" />
+                    <input type="submit" value="Choose Favourite" />
+                </form>
+            </td>
         </tr>
+    }
+</table>
 
-        @foreach (var Dog in ViewBag.displayDogs)
-        {
-            <tr>
-                <td style="text-align:center"> @Dog.Id</td>
-                <td style="text-align:center"> @Dog.Name</td>
-                <td style="text-align:center"> @Dog.Breed</td>
-                <td style="text-align:center"> @Dog.Weight</td>
-                <td style="text-align:center"> @Dog.Color</td>
-                <td style="text-align:center"> @Dog.Sex</td>
-                <td style="text-align:center"> @Dog.Age</td>
-                <td style="text-align:center"> @Dog.Info</td>
-                <td style="text-align:center">
-                    <img height="200"; height:auto; padding:25px; border:unset" src="@Dog.Pic">
-                </td>
-                <td>
-                    <input type="radio" name="favAnimal" id="favAnimal" value="favAnimal" />
-                </td>
-            </tr>
-        }
-    </table>
 
-<a asp-controller="Favourites" asp-action="Index" method="post">Choose your Favourites!</a>

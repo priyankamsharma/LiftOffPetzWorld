@@ -1,0 +1,14 @@
+﻿@model PetzWorld.ViewModels.CreateRoleViewModel;
+
+<h1>User Registration</h1>
+
+<form asp-controller="Administration" asp-action="CreateRole" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group">
+        <label asp-for="RoleName"> RoleName: </label>
+        <input type="text" asp-for="RoleName" />
+        <span asp-validation-for="RoleName"></span>
+        </div>
+
+        <input type="submit" value="Create Roles" class="btn-primary" />
+</form>
