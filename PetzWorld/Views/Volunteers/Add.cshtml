@@ -1,33 +1,24 @@
-﻿<h1>List of Events to Volunteer</h1>
+﻿@model List<PetzWorld.Models.Volunteer>;
+
+<h1>List of Volunteer</h1>
 
 @if (Model.Count == 0)
 {
-     <p>No Events to Volunteer!</p>
+     <p>No Volunteers!</p>
 }
 
 <table class="table" style="text-align:center">
     <tr>
-        <th style="text-align:center">Id</th>
-        <th style="text-align:center">Name</th>
-        <th style="text-align:center">Breed</th>
-        <th style="text-align:center">Weight(lbs)</th>
+        <th style="text-align:center">Event Id</th>
+        <th style="text-align:center">Event Name</th>
+        <th style="text-align:center">Description</th>
     </tr>
-    @foreach (Dog Dog in Model)
+    @foreach (Volunteer vol in Model)
     {
         <tr>
-            <td style="text-align:center"> @Dog.Id</td>
-            <td style="text-align:center"> @Dog.Name</td>
-            <td style="text-align:center"> @Dog.Breed</td>
-            <td style="text-align:center"> @Dog.Weight</td>
-            <td style="text-align:center"> @Dog.Color</td>
-            <td style="text-align:center"> @Dog.Sex</td>
-            <td style="text-align:center"> @Dog.Age</td>
-            <form>
-            <td style="text-align:center"> @Dog.Info - <a asp-controller="Dogs" asp-action="EditInfo" asp-route-id="">Edit</a></td>
-            </form>
-            <td style="text-align:center">
-                <img height="200"; height:auto; padding:25px; border:unset" src="@Dog.Pic">
-            </td>
-            </tr>
+            <td style="text-align:center"> @vol.EventId</td>
+            <td style="text-align:center"> @vol.EventName</td>
+            <td style="text-align:center"> @vol.Description</td>
+        </tr>
     }
 </table>
