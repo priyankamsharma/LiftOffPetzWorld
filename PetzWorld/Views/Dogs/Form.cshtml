@@ -1,10 +1,7 @@
 ﻿@model PetzWorld.ViewModels.AddDogViewModel;
 
-@{
-    ViewData["Title"] = "Dogs Form";
-}
 <body style="background-color:turquoise;">
-<h1>Add new doggie to da database</h1>
+<h1>Add new dog!</h1>
 
 <form asp-controller="Dogs" asp-action="AddDog" method="post">
     <label asp-for="Name"> Name:<br>
