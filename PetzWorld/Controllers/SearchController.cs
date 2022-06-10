@@ -33,7 +33,7 @@ namespace PetzWorld.Controllers
 
             if (searchType == "dogs" || searchType == "Dogs")
             {
-                if (searchTerm == "all")
+                if (searchTerm == "All")
                 {
                     displayDogs = context.Dogs.ToList();
                 }
