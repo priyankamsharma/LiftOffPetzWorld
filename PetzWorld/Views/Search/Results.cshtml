@@ -37,7 +37,9 @@
                 <img height="200" ; height:auto; padding:25px; border:unset" src="@Dog.Pic">
             </td>
             <td>
-                <form asp-controller="Search" asp-action="FavAdd" asp-area="" method="post">
+                <form asp-controller="Favourites" asp-action="AddFav" asp-area="" method="post">
+
+
                     @*<label>@Dog.Id : @Dog.Name : @Dog.Breed </label>*@
                     <input type="radio" name="favAnimal" id="favAnimal" value="@Dog.Id" />
                     <input type="submit" value="Choose Favourite" />

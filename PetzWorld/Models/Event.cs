@@ -7,15 +7,16 @@ namespace PetzWorld.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime EventDate { get; set; }
         public string Description { get; set; }
 
         public Event() { }
 
-        public Event(string name, DateTime date, string description)
+        //public Event(string name, date eventDate, string eventTime, string description)
+        public Event(string name, DateTime eventDate, string description)
         {
             Name = name;
-            Date = date;
+            EventDate = eventDate;
             Description = description;
         }
     }

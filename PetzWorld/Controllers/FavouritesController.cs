@@ -23,34 +23,51 @@ namespace PetzWorld.Controllers
 
         public IActionResult Index()
         {
-            List<Favourite> Favourites = context.Favorites.ToList();
-            return View(Favourites);    
+            string currentUserId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            List<Favourite> favourites = context.Favorites
+                                            .Where(f => f.ApplicationUserId == currentUserId)
+                                            .ToList();
+
+            List<Dog> FavDogs = new List<Dog>();
+
+            foreach (var fav in favourites)
+            {
+                Dog favDog = context.Dogs.Find(fav.DogId);
+
+                FavDogs.Add(favDog);
+
+            }
+            return View(FavDogs);    
         }
 
-        public IActionResult Add()
+        public IActionResult AddFav()
         {
             AddFavouriteViewModel favViewModel = new AddFavouriteViewModel();
             return View(favViewModel);
         }
 
         [HttpPost]
-        public IActionResult Add(AddFavouriteViewModel addFavouriteViewModel)
+        public IActionResult AddFav(AddFavouriteViewModel addFavouriteViewModel)
         {
+
             if (ModelState.IsValid)
             {
+                string currentUserId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+
                 Favourite newFav = new Favourite
                 {
                     DogId = addFavouriteViewModel.DogId,
-                    Name = addFavouriteViewModel.Name,
-                    ApplicationUser = addFavouriteViewModel.ApplicationUser,
-                    ApplicationUserId = addFavouriteViewModel.ApplicationUserId
+                    Dog = context.Dogs.Find(addFavouriteViewModel.DogId),
+                    //ApplicationUser = User,
+                    ApplicationUserId = currentUserId
                 };
 
                 context.Favorites.Add(newFav);
                 context.SaveChanges();
                 return Redirect("/Favourites");
             }
-            return View(addFavouriteViewModel);
+            return View("Search/Results", addFavouriteViewModel);
         }
 
         public IActionResult Delete()

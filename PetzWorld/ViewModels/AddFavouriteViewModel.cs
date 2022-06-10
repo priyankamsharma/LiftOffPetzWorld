@@ -1,14 +1,12 @@
 ﻿using PetzWorld.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace PetzWorld.ViewModels
 {
     public class AddFavouriteViewModel
     {
-        public int Id { get; set; }
+        [Required]
         public int DogId { get; set; }
-        public string Name { get; set; }
-        public ApplicationUser ApplicationUser { get; set; }
-        public string ApplicationUserId { get; set; }
 
         public AddFavouriteViewModel() 
         { 

@@ -27,32 +27,6 @@ namespace PetzWorld.Controllers
             return View(dogs);
         }
 
-        public IActionResult FavAdd()
-        {
-            AddFavouriteViewModel favViewModel = new AddFavouriteViewModel();
-            return View(favViewModel);
-        }
-
-        [HttpPost("/Favourites/Add")]
-        public IActionResult FavAdd(AddFavouriteViewModel addFavouriteViewModel)
-        {
-            if (ModelState.IsValid)
-            {
-                Favourite newFav = new Favourite
-                {
-                    DogId = addFavouriteViewModel.DogId,
-                    Name = addFavouriteViewModel.Name,
-                    ApplicationUserId = addFavouriteViewModel.ApplicationUserId,
-                    ApplicationUser = addFavouriteViewModel.ApplicationUser
-                };
-
-                context.Favorites.Add(newFav);
-                context.SaveChanges();
-                return Redirect("/Favourites");
-            }
-            return View(addFavouriteViewModel);
-        }
-
         public IActionResult Results(string searchType, string searchTerm)
         {
             List<Dog> displayDogs = new List<Dog>();
