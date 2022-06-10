@@ -14,7 +14,7 @@ namespace PetzWorld.Models
         public int Age { get; set; }
         public string Info { get; set; }
         public string Pic { get; set; }
-
+        public ICollection<Favourite> Favourites { get; set; }
 
         public Dog() { }
 

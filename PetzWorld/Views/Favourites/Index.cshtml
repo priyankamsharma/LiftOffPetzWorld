@@ -1,5 +1,5 @@
 ﻿@using PetzWorld.Models;
-@model List<Favourite>;
+@model List<Dog>;
 
 <body style="background-color:turquoise;">
 
@@ -11,32 +11,17 @@
 }
 <table class="table" style="text-align:center">
     <tr>
-        <th style="text-align:center">Username</th>
-        <th style="text-align:center">DogId</th>
+       @* <th style="text-align:center">DogId</th>*@
         <th style="text-align:center">Dog Name</th>
+        @*<th style="text-align:center">UserName</th>*@
     </tr>
-    @foreach (Favourite Fav in Model)
-    {
+    @foreach (Dog Fav in Model)
+    {   
         <tr>
-            <td style="text-align:center"> @Fav.ApplicationUser.UserName</td>
-            <td style="text-align:center"> @Fav.Id</td>
             <td style="text-align:center"> @Fav.Name</td>
+            @*<td style="text-align:center"> @Fav.Name</td>*@
+            @*<td style="text-align:center"> @Fav.ApplicationUser</td>*@
             </tr>
     }
 </table>
-
-@*<form asp-controller="Favourites" asp-action="Delete" method="post">
-   @foreach (var favdata in ViewBag.favourites)
-   {
-      <div class="form-group">
-            <label>
-               <span>@favdata.Id : @favdata.Name</span>
-               <input type="checkbox" name="favIds" value="@favdata.Id" class="form-control">
-            </label>
-      </div>
-   }
-   <input type="submit" value="Delete Selected Favourites" class="btn-primary" />
-</form>*@
-
-<input type="submit" value="Delete Favourites">
 </body>

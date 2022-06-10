@@ -2,13 +2,6 @@
 
 <body style="background-color:turquoise;"></body>
 
-<p>
-    <a asp-controller="Events" asp-action="Add"/>Add Event</a>
-</p>
-<p>
-    <a asp-controller="Events" asp-action="Delete"/>Delete Event</a>
-</p>
-
 <h1>List of all upcoming Events</h1>
 
 @if (Model.Count == 0)
@@ -27,8 +20,15 @@
     {
         <tr>
             <td style="text-align:center"> @newEvents.Name</td>
-            <td style="text-align:center"> @newEvents.Date</td>
+            <td style="text-align:center"> @newEvents.EventDate</td>
             <td style="text-align:center"> @newEvents.Description</td>
         </tr>
     }
 </table>
+
+<form>
+    <a asp-controller="Events" asp-action="Add"/>Add Event
+</form>
+<form>
+    <a asp-controller="Events" asp-action="Delete"/>Delete Event
+</form>

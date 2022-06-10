@@ -9,14 +9,14 @@ using PetzWorld.Data;
 namespace PetzWorld.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220608113851_InitialMigration")]
+    [Migration("20220610013410_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.23")
+                .HasAnnotation("ProductVersion", "3.1.25")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -262,11 +262,11 @@ namespace PetzWorld.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime(6)");
-
                     b.Property<string>("Description")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<DateTime>("EventDate")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Name")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
@@ -278,20 +278,13 @@ namespace PetzWorld.Migrations
 
             modelBuilder.Entity("PetzWorld.Models.Favourite", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("DogId")
                         .HasColumnType("int");
 
                     b.Property<string>("ApplicationUserId")
                         .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
 
-                    b.Property<int>("DogId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.HasKey("Id");
+                    b.HasKey("DogId", "ApplicationUserId");
 
                     b.HasIndex("ApplicationUserId");
 
@@ -384,8 +377,16 @@ namespace PetzWorld.Migrations
             modelBuilder.Entity("PetzWorld.Models.Favourite", b =>
                 {
                     b.HasOne("PetzWorld.Models.ApplicationUser", "ApplicationUser")
-                        .WithMany()
-                        .HasForeignKey("ApplicationUserId");
+                        .WithMany("Favourites")
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PetzWorld.Models.Dog", "Dog")
+                        .WithMany("Favourites")
+                        .HasForeignKey("DogId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("PetzWorld.Models.Volunteer", b =>

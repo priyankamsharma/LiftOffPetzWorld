@@ -38,7 +38,7 @@ namespace PetzWorld.Controllers
                 Event newEvent = new Event
                 {
                     Name = addEventViewModel.Name,
-                    Date = addEventViewModel.DateTime,
+                    EventDate = addEventViewModel.EventDate,
                     Description = addEventViewModel.Description
                 };
 

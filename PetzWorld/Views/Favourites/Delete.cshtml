@@ -1,16 +1,17 @@
-﻿<body style="background-color:turquoise;"></body>
+﻿<body style="background-color:turquoise;">
+</body>
 
 <h1>Delete Favourites</h1>
 
-<form asp-controller="Favourites" asp-action="Delete" method="post">
-   @foreach (var favdata in ViewBag.favourites)
-   {
-      <div class="form-group">
+<form asp-controller="Favourites" asp-action="Index" method="post">
+    @foreach (var favdata in ViewBag.favourites)
+    {
+        <div class="form-group">
             <label>
-               <span>@favdata.Id : @favdata.Name</span>
-               <input type="checkbox" name="favIds" value="@favdata.Id" class="form-control">
+                <span>@favdata.Id : @favdata.Name</span>
+                <input type="checkbox" name="favIds" value="@favdata.Id" class="form-control">
             </label>
-      </div>
-   }
-   <input type="submit" value="Delete Selected Favourites" class="btn-primary" />
+        </div>
+    }
+     <input type="submit" value="Delete Selected Favourites" class="btn-primary" />
 </form>

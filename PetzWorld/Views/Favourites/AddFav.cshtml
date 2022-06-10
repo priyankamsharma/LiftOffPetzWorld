@@ -1,9 +1,28 @@
-﻿@*@model PetzWorld.ViewModels.AddFavouriteViewModel;
+﻿<body style="background-color:turquoise;"></body>
 
-<body style="background-color:turquoise;"></body>
+<h1>Favourite Animals!</h1>
 
-<h1>Add Events</h1>
-<h5 class="text-light">Create an upcoming event here!</h5>
+@if (Model.Count == 0)
+{
+     <p>No favourite animal added yet!</p>
+}
+<table class="table" style="text-align:center">
+    <tr>
+        <th style="text-align:center">DogId</th>
+        <th style="text-align:center">Dog Name</th>
+        <th style="text-align:center">UserName</th>
+    </tr>
+    @foreach (Favourite Fav in Model)
+    {
+        <tr>
+            <td style="text-align:center"> @Fav.DogId</td>
+            @*<td style="text-align:center"> @Fav.Name</td>*@
+            <td style="text-align:center"> @Fav.ApplicationUser</td>
+            </tr>
+    }
+</table>
+
+@*<h5 class="text-light">Create an upcoming event here!</h5>
 
 <form asp-controller="Events" asp-action="Add" method="post">
     <div class="form-group">

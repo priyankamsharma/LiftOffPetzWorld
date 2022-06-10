@@ -2,7 +2,7 @@
 
 <body style="background-color:turquoise;"></body>
 
-@if (ViewBag.displayVolunteers == null)
+@if (ViewBag.volunteers == null)
 {
      <p>No volunteer role added for upcoming events yet!</p>
 }
@@ -14,12 +14,15 @@
             <th style="text-align:center">Description</th>
         </tr>
 
-        @foreach (var Volunteer in ViewBag.displayVolunteers)
+        @foreach (var Volunteer in ViewBag.volunteers)
         {
             <tr>
-                <div class="form-group">
-                    <input type="checkbox" name="volunteerIds" value="@Volunteer.Id" class="form-control"> 
-                </div>
+                <td>
+                <form asp-controller="Volunteers" asp-action="Delete" method="post">
+                    <input type="checkbox" name="volunteerIds" value="@Volunteer.Id" class="form-control">
+                    <input type="submit" value="Choose Favourite" />
+                </form>
+                </td>
                 <td style="text-align:center"> @Volunteer.EventId</td>
                 <td style="text-align:center"> @Volunteer.EventName</td>
                 <td style="text-align:center"> @Volunteer.Description</td>
@@ -27,4 +30,3 @@
         }
     </table>
 
-<a asp-controller="Volunteers" asp-action="Delete" method="post">Delete Volunteer work for event!</a>
