@@ -8,9 +8,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace PetzWorld.Areas.Identity.Data
 {
-    public class AppDbContext : IdentityDbContext<IdentityUser>
+    public class App1DbContext : IdentityDbContext<IdentityUser>
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options)
+        public App1DbContext(DbContextOptions<App1DbContext> options)
             : base(options)
         {
         }

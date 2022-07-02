@@ -14,7 +14,8 @@
     <br />
     <div class="form-group">
     <label asp-for="EventDate"> Date: </label>
-        <input type="datetime" asp-for="EventDate" />
+       @* <input type="datetime" asp-for="EventDate" />*@
+       <input type="datetime-local" asp-for="EventDate" />  
         <span asp-validation-for="EventDate"></span>
     </div>
     <br />
