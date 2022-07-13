@@ -56,22 +56,22 @@ namespace PetzWorld.Controllers
             return View("Form", addDogViewModel);
         }
 
-        // GET: "/dogs/edit/{id}"
-        [HttpGet("/Dogs/EditInfo")]
-        public IActionResult EditInfo(int dogIds)
-        {
-            ViewBag.dog = context.Dogs.Find(dogIds);
-            ViewBag.info = $"{context.Dogs.Find(dogIds).Info}'s";
+        //// GET: "/dogs/edit/{id}"
+        //[HttpGet("/Dogs/EditInfo")]
+        //public IActionResult EditInfo(int dogIds)
+        //{
+        //    ViewBag.dog = context.Dogs.Find(dogIds);
+        //    ViewBag.info = $"{context.Dogs.Find(dogIds).Info}'s";
 
-            return View();
-        }
+        //    return View();
+        //}
 
-        [HttpPost("/Dogs/EditInfo")]
-        public IActionResult NewInfo(int dogId, string info)
-        {
-            ApplicationDbContext.ChangeInfo(dogId, info);
-            return Redirect("/Dogs");
-        }
+        //[HttpPost("/Dogs/EditInfo")]
+        //public IActionResult NewInfo(int dogId, string info)
+        //{
+        //    ApplicationDbContext.ChangeInfo(dogId, info);
+        //    return Redirect("/Dogs");
+        //}
 
         public IActionResult Delete()
         {

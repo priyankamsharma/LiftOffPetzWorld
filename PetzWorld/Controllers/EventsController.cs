@@ -49,6 +49,24 @@ namespace PetzWorld.Controllers
             return View(addEventViewModel);
         }
 
+        [HttpGet("/events/{id}/edit")]
+        public IActionResult EditDescription(int id)
+        {
+            ViewBag.selectedAnimal = ApplicationDbContext.GetById(id);
+
+            ViewBag.description = $"{ApplicationDbContext.GetById(id).Description}'s";
+
+            return View();
+        }
+
+        [HttpPost("events/{id}/edit")]
+        public IActionResult NewDescription(int id, string description)
+        {
+            ApplicationDbContext.ChangeDescription(id, description);
+
+            return Redirect("/events");
+        }
+
         public IActionResult Delete()
         {
             ViewBag.events = context.Events.ToList();
@@ -70,4 +88,13 @@ namespace PetzWorld.Controllers
     }
 }
 
+//// GET: "/animals/edit/{id}"
+//[HttpGet("/animals/{id}/editname")]
+//public IActionResult EditName(int id)
+//{
+//    ViewBag.selectedAnimal = AnimalData.GetById(id);
 
+//    ViewBag.name = $"{AnimalData.GetById(id).Name}'s";
+
+//    return View();
+//}

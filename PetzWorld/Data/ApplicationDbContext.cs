@@ -35,22 +35,41 @@ namespace PetzWorld.Data
         }
 
 
-        static private Dictionary<int, Dog> MyDogs = new Dictionary<int, Dog>();
+        //static private Dictionary<int, Dog> MyDogs = new Dictionary<int, Dog>();
+        //// GetAll
+        //public static IEnumerable<Dog> GetAll()
+        //{
+        //    return MyDogs.Values;
+        //}
+
+        //public static Dog GetById(int id)
+        //{
+        //    return MyDogs[id];
+        //}
+
+        //// Edit
+        //public static void ChangeInfo(int id, string newInfo)
+        //{
+        //    MyDogs[id].Info = newInfo;
+        //}
+
+        static private Dictionary<int, Event> newEvents = new Dictionary<int, Event>();
         // GetAll
-        public static IEnumerable<Dog> GetAll()
+        public static IEnumerable<Event> GetAll()
         {
-            return MyDogs.Values;
+            return newEvents.Values;
         }
 
-        public static Dog GetById(int id)
+
+        // GetById
+        public static Event GetById(int id)
         {
-            return MyDogs[id];
+            return newEvents[id];
         }
 
-        // Edit
-        public static void ChangeInfo(int id, string newInfo)
+        public static void ChangeDescription(int id, string newDescription)
         {
-            MyDogs[id].Info = newInfo;
+            newEvents[id].Description = newDescription;
         }
     }
 }

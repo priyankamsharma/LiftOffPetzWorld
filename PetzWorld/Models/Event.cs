@@ -12,7 +12,6 @@ namespace PetzWorld.Models
 
         public Event() { }
 
-        //public Event(string name, date eventDate, string eventTime, string description)
         public Event(string name, DateTime eventDate, string description)
         {
             Name = name;

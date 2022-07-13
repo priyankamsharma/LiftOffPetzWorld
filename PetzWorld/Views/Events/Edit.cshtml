@@ -1,9 +1,12 @@
-﻿<h1>Edit @ViewBag.info Info:</h1>
+﻿<body style="background-color:turquoise;"></body>
 
-<form asp-controller="Events" asp-action="Index" method="post">
+<h1>Edit @ViewBag.name Description:</h1>
+@*
+<form asp-controller="Events" asp-action="Edit" method="post">*@
+<form method="post">
     <div class="form-group">
-        <label for="info">New Info: </label>
-        <input type="text" name="info" />
+        <label for="description">New Description: </label>
+        <input type="text" name="description" />
     </div>
-    <input type="submit" value="Change Info" />
+    <input type="submit" value="Change Description" />
 </form>

@@ -11,7 +11,7 @@ namespace PetzWorld.ViewModels
         [Required(ErrorMessage = "Event Name is required!")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Date for Event is required!")]
+        [Required(ErrorMessage = "Date/Time must be selected")]
         public DateTime EventDate { get; set; }
         public string Description { get; set; }
     

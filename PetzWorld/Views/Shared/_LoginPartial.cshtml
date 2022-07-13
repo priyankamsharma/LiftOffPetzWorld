@@ -3,83 +3,24 @@
 @inject UserManager<IdentityUser> UserManager
 
 <ul class="navbar-nav">
-    @if (SignInManager.IsSignedIn(User))
-    {
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
-                <img height="30" ; height:auto; src="https://lh3.googleusercontent.com/pw/AM-JKLVOdVfJkBBikdN3RDo9gGxQM4e3_TTnEvpOql7qbYpSrSh15eUPoVY9f1Wfw4nodOi3iNGKhEsT2WDiw4L57iqjvYHfYJJohuL7M75eGFFPMw4HlDXq5r_iDTsKQ6a4AFaL4JOYL4Ei5ZswW_TpOqix=w119-h69-no?authuser=0"> @User.Identity.Name
-            </a>
-        </li>
-        <li class="nav-item">
-            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                <button type="submit" class="nav-link btn btn-link text-dark"><img height="30" ; height:auto; src="https://lh3.googleusercontent.com/pw/AM-JKLX8H433eBlnG5YwMQfvAaRGzH3THLhuwMhgT3m4oShqH4T5UppPf4SPFn8j0mU4rCOONXpdwW5wist-72x0rQRSczPbJVp2BhtIILGnCr0GW2l5u5iakk_tpK6BmTa4q0TDnQ_OkACdHC3eelj71vH2=w178-h77-no?authuser=0"></button>
-            </form>
-        </li>
-    }
-    else
-    {
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register"><img height="30" ; height:auto; src="https://lh3.googleusercontent.com/pw/AM-JKLUtBJLlQKUf3TGs55KI1-o9M_QwDRl6QL05AhAXp5FqEe7ilmnJKOGoa3I1EDcK8EO-8kwTdDy0ivq0aaP3Uq_RgKJAi8vuqYU71j6V3JCneuNv13jgCf6JyofzN84mYXkvP-xh9gU4d9_YKUR9XDo=w164-h80-no?authuser=0"></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login"><img height="30" ; height:auto; src="https://lh3.googleusercontent.com/pw/AM-JKLVQ-EngRWKkLbnhVnlVRBM8ohI9APsl7hrcw8NprgwuE7a98wRHhXw1VeYfnLoebFYuf8TYcJzV7xONwh7h0yCOEiqTRw_Vir6cDx9EQDdDJZw7gRiwXrJqIz3OnvixxqpL6a9LJiI4HHnc0uQH_v0=w154-h80-no?authuser=0"></a>
-        </li>
-    }
+@if (SignInManager.IsSignedIn(User))
+{
+    <li class="nav-item">
+        <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
+    </li>
+    <li class="nav-item">
+        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            <button  type="submit" class="nav-link btn btn-link text-dark"><img height="30" ; height:auto; src="img/buttonLo.png"></button>
+        </form>
+    </li>
+}
+else
+{
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register"><img height="30" ; height:auto; src="img/buttonR.png"></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login"><img height="30" ; height:auto; src="img/buttonLi.png"></a>
+    </li>
+}
 </ul>
-
-
-
-@*@using Microsoft.AspNetCore.Identity
-    @inject SignInManager<IdentityUser> SignInManager
-    @inject UserManager<IdentityUser> UserManager
-
-    <ul class="navbar-nav">
-    @if (SignInManager.IsSignedIn(User))
-    {
-    <li class="nav-item">
-    <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
-    </li>
-    <li class="nav-item">
-    <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-    <button  type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-    </form>
-    </li>
-    }
-    else
-    {
-    <li class="nav-item">
-    <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register"><img height="30" ; height:auto; src="https://lh3.googleusercontent.com/pw/AM-JKLUtBJLlQKUf3TGs55KI1-o9M_QwDRl6QL05AhAXp5FqEe7ilmnJKOGoa3I1EDcK8EO-8kwTdDy0ivq0aaP3Uq_RgKJAi8vuqYU71j6V3JCneuNv13jgCf6JyofzN84mYXkvP-xh9gU4d9_YKUR9XDo=w164-h80-no?authuser=0"></a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login"><img height="30" ; height:auto; src="https://lh3.googleusercontent.com/pw/AM-JKLVQ-EngRWKkLbnhVnlVRBM8ohI9APsl7hrcw8NprgwuE7a98wRHhXw1VeYfnLoebFYuf8TYcJzV7xONwh7h0yCOEiqTRw_Vir6cDx9EQDdDJZw7gRiwXrJqIz3OnvixxqpL6a9LJiI4HHnc0uQH_v0=w154-h80-no?authuser=0"></a>
-    </li>
-    }
-    </ul>
-*@
-
-@*@using Microsoft.AspNetCore.Identity
-    @inject SignInManager<IdentityUser> SignInManager
-    @inject UserManager<IdentityUser> UserManager
-
-    <ul class="navbar-nav">
-    @if (SignInManager.IsSignedIn(User))
-    {
-    <li class="nav-item">
-    <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
-    </li>
-    <li class="nav-item">
-    <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-    <button  type="submit" class="nav-link btn btn-link text-dark"><img height="30" ; height:auto; src="img/buttonLo.png"></button>
-    </form>
-    </li>
-    }
-    else
-    {
-    <li class="nav-item">
-    <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register"><img height="30" ; height:auto; src="img/buttonR.png"></a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login"><img height="30" ; height:auto; src="img/buttonLi.png"></a>
-    </li>
-    }
-    </ul>*@
